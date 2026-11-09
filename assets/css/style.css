@@ -67,6 +67,9 @@ code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospac
 .authors { list-style: none; padding: 0; margin: 22px 0 6px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; }
 .authors a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
 .affiliations { list-style: none; padding: 0; margin: 0 0 8px; font-size: .9rem; color: var(--ink-soft); display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 16px; }
+.authors sup, .affiliations sup, .contact sup { font-size: .7em; margin: 0 1px; }
+.contact { margin: 0 0 8px; font-size: .9rem; color: var(--ink-soft); }
+.contact a { color: var(--ink-soft); }
 .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600; border: 1px solid transparent; }
 .btn svg { width: 18px; height: 18px; }
