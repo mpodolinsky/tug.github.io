@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing</title>
   <meta name="description" content="VLA-Tug is a lightweight probe on the latent layers of a Vision-Language-Action model that predicts a failure before it happens, predicts its mode, and comes with calibrated error guarantees.">
-  <meta name="author" content="Anonymous authors">
+  <meta name="author" content="Michal P. Podolinsky, Yunhao Yang, Daniel Little, Hong Lu, Rohan Siva, Olin Goudey, Neel P. Bhatt, Matthias Scheutz, Ufuk Topcu">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VLA-Tug">
   <meta property="og:title" content="Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing">
@@ -49,18 +49,24 @@
       </h1>
     </div>
 
-    <!-- TODO (after the review period): replace with the real author list, as in the paper's arXiv version:
-         <ul class="authors"><li><a href="URL">Name</a><sup>1</sup></li> ...</ul>
-         <ul class="affiliations"><li><sup>1</sup>Institution</li> ...</ul>
-         <p class="contact"><sup>*</sup>Corresponding author: <a href="mailto:...">...</a></p> -->
-    <p class="authors-anon">Anonymous authors</p>
-    <p class="status">Paper under review</p>
+    <ul class="authors">
+      <li>Michal P. Podolinsky</li>
+      <li>Yunhao Yang</li>
+      <li>Daniel Little</li>
+      <li>Hong Lu</li>
+      <li>Rohan Siva</li>
+      <li>Olin Goudey</li>
+      <li>Neel P. Bhatt</li>
+      <li>Matthias Scheutz</li>
+      <li>Ufuk Topcu</li>
+    </ul>
+    <p class="status">arXiv:2611.08425 [cs.RO]</p>
 
     <div class="links">
-      <span class="btn btn-soon" aria-disabled="true">
+      <a class="btn" href="https://arxiv.org/abs/2611.08425">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
-        Paper <span class="soon">arXiv soon</span>
-      </span>
+        Paper
+      </a>
       <a class="btn" href="#demo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>
         Demo
@@ -70,10 +76,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13 5l-2 14"/></svg>
         Code
       </a>
-      <span class="btn btn-soon" aria-disabled="true">
+      <a class="btn" href="https://huggingface.co/collections/podolinsky/vla-failure-embeddings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg>
-        Data <span class="soon">soon</span>
-      </span>
+        Data
+      </a>
       <a class="btn btn-light" href="#bibtex">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H8a2 2 0 0 0-2 2v3.5A2.5 2.5 0 0 1 3.5 12 2.5 2.5 0 0 1 6 14.5V18a2 2 0 0 0 2 2h1M15 4h1a2 2 0 0 1 2 2v3.5a2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0-2.5 2.5V18a2 2 0 0 1-2 2h-1"/></svg>
         BibTeX
@@ -265,7 +271,7 @@
 <section class="section alt" id="data" aria-labelledby="data-title">
   <div class="wrap narrow">
     <h2 class="section-title" id="data-title">Dataset</h2>
-    <p>Pooled embeddings and annotations of simulated rollouts of two VLAs (GR00T-N1.7 and &pi;0.5) on LIBERO-10 with occlusions and on LIBERO-X, with failure times and failure modes. Dataset: <span class="soon-inline">link soon</span>.</p>
+    <p>Pooled embeddings and annotations of simulated rollouts of two VLAs (GR00T-N1.7 and &pi;0.5) on LIBERO-10 with occlusions and on LIBERO-X, with failure times and failure modes. Dataset: <a href="https://huggingface.co/collections/podolinsky/vla-failure-embeddings">Hugging Face collection</a>.</p>
   </div>
 </section>
 
@@ -287,11 +293,14 @@ python -m cli.figures                      # main table, ablations, curves</code
     <h2 class="section-title" id="bibtex-title">BibTeX</h2>
     <div class="bibbox">
       <button class="copy" type="button" data-copy="bib">Copy</button>
-<pre id="bib"><code>@misc{vla-tug,
-  title  = {Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing},
-  author = {Anonymous},
-  year   = {2026},
-  note   = {Under review}
+<pre id="bib"><code>@misc{podolinsky2026failure,
+  title         = {Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing},
+  author        = {Podolinsky, Michal P. and Yang, Yunhao and Little, Daniel and Lu, Hong and Siva, Rohan and Goudey, Olin and Bhatt, Neel P. and Scheutz, Matthias and Topcu, Ufuk},
+  year          = {2026},
+  eprint        = {2611.08425},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2611.08425}
 }</code></pre>
     </div>
     <p class="note">TODO: replace with the final entry (authors, arXiv id) once the paper is public.</p>
@@ -302,7 +311,7 @@ python -m cli.figures                      # main table, ablations, curves</code
 
 <footer class="footer">
   <div class="wrap">
-    <p>VLA-Tug &middot; Paper under review &middot; <a href="#top">Back to top</a></p>
+    <p>VLA-Tug &middot; arXiv:2611.08425 &middot; <a href="#top">Back to top</a></p>
     <p class="small">The page template follows the structure of project pages such as <a href="https://form-robots.github.io/">form-robots.github.io</a>; the design and code here are written from scratch.</p>
   </div>
 </footer>

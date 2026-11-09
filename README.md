@@ -2,7 +2,9 @@
 
 Project page of **Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing**. It is a static page (HTML, CSS and JavaScript, no build step) with an interactive demo of the failure probe.
 
-For the code, the data and more information see the anonymous repository: <https://anonymous.4open.science/r/VLA-Tug/>
+Paper: <https://arxiv.org/abs/2611.08425>  
+Data: <https://huggingface.co/collections/podolinsky/vla-failure-embeddings>  
+Code: the repository is linked from the page (<https://anonymous.4open.science/r/VLA-Tug/> during review).
 
 ## View it locally
 
