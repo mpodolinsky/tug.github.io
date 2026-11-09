@@ -4,7 +4,7 @@ Project page of **Failure Prediction and Classification in Vision-Language-Actio
 
 Paper: <https://arxiv.org/abs/2611.08425>  
 Data: <https://huggingface.co/collections/podolinsky/vla-failure-embeddings>  
-Code: the repository is linked from the page (<https://anonymous.4open.science/r/VLA-Tug/> during review).
+Code: <https://github.com/mpodolinsky/tug>
 
 ## View it locally
 
