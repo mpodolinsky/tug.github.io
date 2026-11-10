@@ -9,7 +9,7 @@
 .legend-markers { margin: 10px 0 2px; }
 
 /* ---- episode picker ---------------------------------------------------------------------------------------------------------- */
-.demo-episodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; margin: 6px 0 12px; }
+.demo-episodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 10px; margin: 6px 0 12px; }
 .demo-episode { display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-align: left; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; }
 .demo-episode:hover { border-color: var(--accent); }
 .demo-episode[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; background: var(--tint); }
@@ -150,19 +150,54 @@
 /* ---- narrower screens: the flow reads top to bottom ---------------------------------------------------------------------------- */
 @media (max-width: 1000px) {
   .runtime { grid-template-columns: 1fr; align-items: start; }
-  .vtug-body, .flow-foot { grid-template-columns: 1fr; gap: 24px; }
+  /* A flex column, not a one-column grid: on iPhones (WebKit, in every browser there) the latent box, a grid item whose content is all positioned,
+     collapsed to no size, while the head boxes, which are flex items, drew fine. */
+  .vtug-body, .flow-foot { display: flex; flex-direction: column; gap: 24px; }
+  .vtug-body > *, .flow-foot > * { min-width: 0; }
+  .latent { flex: none; }
   .head::after { display: none; }
   .flow-foot { margin: 0; }
-  .latent { aspect-ratio: 1.25 / 1; }
+  /* The plot's height comes from an in-flow pseudo-element (padding is a share of the width), not from aspect-ratio: this box is a grid item whose
+     content is all positioned, and a browser that stretches or ignores aspect-ratio on a grid item would leave it with no height at all. */
+  .latent { min-height: 0; }
+  .latent::before { content: ""; display: block; padding-top: 80%; }
   .flow-top { flex-direction: column; align-items: flex-start; }
   .flow-top > .arrow { margin-left: 14px; transform: rotate(90deg); }
 }
 @media (max-width: 860px) {
   .runtime { grid-template-columns: 1fr; }
-  .latent { aspect-ratio: 1 / 1; }
+  .latent::before { padding-top: 66%; } /* landscape phones and small tablets: a plot taller than the screen is no use */
   .head.embed-node, .flow.is-3d .head.embed-node { aspect-ratio: 4 / 3; }
   .head-long-legend.embed-node, .flow.is-3d .head-long-legend.embed-node { aspect-ratio: 5 / 6; } /* its legend is a strip at the bottom here, so the box needs the height */
   .overlay-right, .overlay-narrow { top: auto; bottom: 8px; left: 8px; width: auto; }
   .overlay-narrow .demo-legend-column { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); } /* on a narrow screen the side legend becomes a strip at the bottom */
   .demo-legend-column { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+}
+
+/* ---- phones: nothing may be wider than the screen, and the controls stay usable by thumb ------------------------------------------------ */
+@media (max-width: 600px) {
+  .latent::before { padding-top: 100%; }
+  .demo-episodes { grid-template-columns: minmax(0, 1fr); }
+  .demo-episode { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 12px 9px; } /* the badge above its text, which then has the full width */
+  .demo-bar { gap: 10px; padding: 5px 10px; }
+  .demo-bar .btn { min-width: 64px; padding: 6px 12px; }
+  .demo-bar input[type="range"] { flex: 1 1 0; min-width: 0; }
+  .demo-bar .demo-time { min-width: 0; font-size: .82rem; white-space: nowrap; }
+  .demo-panel { padding: 10px 10px 12px; }
+  .demo-head { font-size: 1rem; }
+  .inputs { width: 100%; }
+  .input-view canvas { width: 96px; height: 96px; }
+  #flow-instruction { min-height: 0; max-width: none; flex: 1 1 100%; }
+  .flow-top { margin-bottom: 64px; }
+  .flow-top > :nth-child(4), .flow-top > :nth-child(5) { display: none; } /* "-> Action chunk" would sit on top of the embedding label once the flow is a column */
+  .embedding { flex-wrap: wrap; gap: 2px 8px; width: 236px; white-space: normal; } /* two lines instead of one line running off the screen */
+  .vla { flex-wrap: wrap; max-width: 100%; }
+  .vtug { padding-inline: 6px; }
+  .vtug-label { right: 10px; }
+  .node { padding-inline: 8px; }
+  .trigger-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .flow-caption { font-size: .8rem; }
+  .flow-foot { margin-inline: 0; }
+  .demo-videos { gap: 6px; }
+  .demo-callouts li { grid-template-columns: 20px 3.6em 1fr; }
 }
