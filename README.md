@@ -1,3 +1,12 @@
+---
+title: VLA Failure Probe
+emoji: 🤖
+colorFrom: blue
+colorTo: indigo
+sdk: static
+pinned: false
+---
+
 # Project page: Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing
 
 Project page of **Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing**. It is a static page (HTML, CSS and JavaScript, no build step) with an interactive demo of the failure probe.
